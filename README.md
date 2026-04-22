@@ -1,57 +1,57 @@
 # TranslateDictionary
 Từ điển Anh - Việt 
 
-CAU TRUC FILE:
-  main.cpp     <- Leader viet 
-  tuvung.h     <- Leader viet 
-  tuvung.cpp   <- Ca 3 viet 
-  crud.cpp     <- Developer viet
-  fileIO.cpp   <- Tester & Documenter viet
-  tudien.txt   <- Du lieu mau (co san)
+Cấu trúc:
+- main.cpp     <- Leader viết
+- tuvung.h     <- Leader viết
+- tuvung.cpp   <- Cả 3 viết
+- crud.cpp     <- Developer viết
+- fileIO.cpp   <- Tester & Documenter viết
+- tudien.txt   <- Có sẵn
 
 ---------------------------------------------------
 Leader:
-  [x] struct TuVung + TuDien (mang dong)
-  [x] khoiTao() / giaiPhong() / moRong()
-  [x] sapXepTheoAlphabet()
-  [x] timKiemBinarySearch()
-  [x] timKiemChuoiCon()
-  [x] hienThiMenu() / veKhung()
-  [x] main.cpp (vong lap menu chinh)
-  [ ] Ghep code cuoi + test tich hop
+- [x] struct TuVung + TuDien (mảng động)
+- [x] khoiTao() / giaiPhong() / moRong()
+- [x] sapXepTheoAlphabet()
+- [x] timKiemBinarySearch()
+- [x] timKiemChuoiCon()
+- [x] hienThiMenu() / veKhung()
+- [x] main.cpp (vong lap menu chinh)
+- [ ] Ghép code cuối + test tích hợp
 
 ---------------------------------------------------
 Developer
-  [ ] themTuVung()
-  [ ] hienThiTatCa() + hienThiChiTiet()
-  [ ] suaTuVung()
-  [ ] xoaTuVung()
-  [ ] danhDauYeuThich() + hienThiYeuThich()
-  [ ] quizNgauNhien()
-  [ ] hienThiThongKe()
+- [ ] themTuVung()
+- [ ] hienThiTatCa() + hienThiChiTiet()
+- [ ] suaTuVung()
+- [ ] xoaTuVung()
+- [ ] danhDauYeuThich() + hienThiYeuThich()
+- [ ] quizNgauNhien()
+- [ ] hienThiThongKe()
   => File: crud.cpp 
 
 ---------------------------------------------------
 Tester & Documenter:
-  [ ] docFile() - doc tu file khi khoi dong
-  [ ] ghiFile() - ghi khi thoat
-  [ ] xuatYeuThich() - xuat file rieng
-  [ ] nhapSoHopLe() - validation so
-  [ ] nhapChuoiHopLe() - validation chuoi
-  [ ] try-catch cho tat ca truong hop loi
-  [ ] Test toan bo chuc nang, ghi bug ra
-  [ ] Viet bao cao
+- [ ] docFile() - đọc từ file khi khởi động
+- [ ] ghiFile() - ghi khi thoát
+- [ ] xuatYeuThich() - xuất file riêng
+- [ ] nhapSoHopLe() - validation số
+- [ ] nhapChuoiHopLe() - validation chuỗi
+- [ ] try-catch cho tất cả các trường hợp lỗi
+- [ ] Test toàn bộ chức năng, ghi bug ra
+- [ ] Viết báo cáo
   => File: fileIO.cpp 
 
 ---------------------------------------------------
-CACH COMPILE:
+CÁCH COMPILE:
   g++ main.cpp tuvung.cpp crud.cpp fileIO.cpp -o tudien
   ./tudien
 
 ---------------------------------------------------
-LUU Y QUAN TRONG:
-  - Ca 3 nguoi deu phai hieu TOAN BO code
-  - GV se hoi van dap tung nguoi
-  - Du lieu KHONG duoc mat khi tat/mo lai
-  - Bat buoc co new/delete va try-catch
+LƯU Ý QUAN TRỌNG:
+  - Cả 3 đều phải hiểu TOÀN BỘ code
+  - GV sẽ vấn đáp từng người
+  - Dữ liệu KHÔNG được mất khi tắt/mở lại
+  - Bắt buộc có new/delete và try-catch
 ===================================================
