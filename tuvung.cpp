@@ -232,3 +232,90 @@ void hienThiThongKe(const TuDien& td) {
     cout << "  Tinh tu (adj)   : " << soAdj        << "\n";
     cout << "  Trang tu (adv)  : " << soAdv        << "\n";
 }
+
+// ============================================================
+//  GHI FILE
+// ============================================================
+void ghiFile(const TuDien& td, const string& tenFile) {
+    try {
+        ofstream f(tenFile.txt);
+
+        if (!f.is_open()) {
+            cout << "Loi: Khong the tao file!";
+            return;
+        }
+
+        f << td.soLuong << endl;
+
+        for (int i = 0; i < td.soLuong; i++) {
+            const TuVung& tv = td.data[i];
+
+            f << tv.word << "|"
+              << tv.pronunciation << "|"
+              << tv.type << "|"
+              << tv.meaning << "|"
+              << tv.example << "|"
+              << tv.favorite << endl;
+        }
+
+        f.close();
+        cout << "  ✓ Da ghi file thanh cong!\n";
+    }
+    catch (const exception& e) {
+        cout << " Loi ghi file: " << e.what() << endl;
+    }
+}
+
+// ============================================================
+//  ĐỌC FILE
+// ============================================================
+void docFile(TuDien& td, const string& tenFile) {
+    try {
+        ifstream f(tenFile.txt);
+
+        if (!f.is_open()) {
+            cout << "Loi: Khong the mo file!" << endl;
+            return;
+        }
+        
+        int n;
+        f >> n;
+
+        if (f.fail()) {
+            cout << "File sai dinh dang!" << endl;
+            return;
+        }
+
+        f.ignore(); // bỏ newline
+
+        td.soLuong = 0;
+
+        for (int i = 0; i < n; i++) {
+            TuVung tv;
+            string line;
+
+            getline(f, line);
+            if (line.empty()) continue;
+
+            stringstream ss(line);
+            string fav;
+
+            getline(ss, tv.word, '|');
+            getline(ss, tv.pronunciation, '|');
+            getline(ss, tv.type, '|');
+            getline(ss, tv.meaning, '|');
+            getline(ss, tv.example, '|');
+            getline(ss, fav, '|');
+
+            tv.favorite = (fav == "1");
+
+            themTuVung(td, tv); // dùng lại hàm có sẵn của bạn
+        }
+
+        f.close();
+        cout << " ✓ Da doc file thanh cong!" << endl;
+    }
+    catch (const exception& e) {
+        cout << " Loi doc file: " << e.what() << endl;
+    }
+}
