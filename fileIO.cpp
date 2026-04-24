@@ -92,3 +92,45 @@ void docFile(TuDien& td, const string& tenFile) {
         cout << " Loi doc file: " << e.what() << endl;
     }
 }
+
+// ============================================================
+//  XUẤT YÊU THÍCH
+// ============================================================
+void xuatYeuThich(const TuDien& td, const string& tenFile) {
+    try {
+        ofstream f(tenFile.txt);
+
+        if (!f.is_open()) {
+            cout << "Khong mo duoc file de ghi!";
+            return;
+        }
+
+        int dem = 0;
+
+        for (int i = 0; i < td.soLuong; i++) {
+            const TuVung& tv = td.data[i];
+
+            if (tv.favorite) {
+                f << tv.word << "|"
+                  << tv.pronunciation << "|"
+                  << tv.type << "|"
+                  << tv.meaning << "|"
+                  << tv.example << "|"
+                  << tv.favorite << endl;
+
+                dem++;
+            }
+        }
+
+        f.close();
+
+        if (dem == 0) {
+            cout << " Khong co tu yeu thich de xuat\n";
+        } else {
+            cout << " ✓ Da xuat " << dem << " tu yeu thich ra file!\n";
+        }
+    }
+    catch (const exception& e) {
+        cout << " Loi xuat yeu thich: " << e.what() << endl;
+    }
+}
