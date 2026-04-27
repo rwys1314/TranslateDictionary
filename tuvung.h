@@ -46,8 +46,8 @@ bool xoaTuVung(TuDien& td, int viTri);
 //  TIM KIEM & SAP XEP  (Leader)
 // ============================================================
 void sapXepTheoAlphabet(TuDien& td);
-int  timKiemBinarySearch(const TuDien& td, const string& word);
-void timKiemChuoiCon(const TuDien& td, const string& keyword);
+int  BinarySearch(const TuDien& td, const string& word);
+void timKiem(const TuDien& td, const string& keyword);
 
 // ============================================================
 //  YEU THICH & QUIZ  (Developer)
