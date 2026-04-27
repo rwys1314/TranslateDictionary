@@ -27,7 +27,7 @@ struct TuDien {
 };
 
 // ============================================================
-//  KHOI TAO & GIAI PHONG (2)
+//  KHỞI TẠO & GIẢI PHÓNG (2)
 // ============================================================
 void khoiTao   (TuDien& td, int dungLuongBanDau = 10);
 void giaiPhong (TuDien& td);
@@ -43,14 +43,14 @@ bool suaTuVung      (TuDien& td, int viTri, const TuVung& tvMoi);
 bool xoaTuVung      (TuDien& td, int viTri);
 
 // ============================================================
-//  TIM KIEM & SAP XEP (2)
+//  TÌM KIẾM & SẮP XẾP (2)
 // ============================================================
 void sapXepTheoAlphabet (TuDien& td);
 int  BinarySearch       (const TuDien& td, const string& word);
 void timKiem            (const TuDien& td, const string& keyword);
 
 // ============================================================
-//  YEU THICH & QUIZ (2)
+//  YÊU THÍCH & QUIZ (2)
 // ============================================================
 void danhDauYeuThich (TuDien& td, int viTri);
 void hienThiYeuThich (const TuDien& td);
@@ -58,7 +58,7 @@ void quizNgauNhien   (const TuDien& td);
 void hienThiThongKe  (const TuDien& td);
 
 // ============================================================
-//  DOC / GHI FILE (3)
+//  ĐỌC/GHI FILE (3)
 // ============================================================
 void docFile       (TuDien& td, const string& tenFile);
 void ghiFile       (const TuDien& td, const string& tenFile);
