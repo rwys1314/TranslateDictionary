@@ -43,7 +43,7 @@ void ghiFile(const TuDien& td, const string& tenFile) {
 // ============================================================
 void docFile(TuDien& td, const string& tenFile) {
     try {
-        ifstream f(tenFile + ".txt");
+        ifstream f(tenFile);
 
         if (!f.is_open()) {
             cout << "Khong mo duoc file de doc!";
@@ -98,7 +98,7 @@ void docFile(TuDien& td, const string& tenFile) {
 // ============================================================
 void xuatYeuThich(const TuDien& td, const string& tenFile) {
     try {
-        ofstream f(tenFile + ".txt");
+        ofstream f(tenFile);
 
         if (!f.is_open()) {
             cout << "Khong mo duoc file de ghi!";
@@ -106,7 +106,6 @@ void xuatYeuThich(const TuDien& td, const string& tenFile) {
         }
 
         int dem = 0;
-
         for (int i = 0; i < td.soLuong; i++) {
             const TuVung& tv = td.data[i];
 
@@ -158,14 +157,14 @@ void ghiThongKe(const TuDien& td, const string& tenFile) {
 // ============================================================
 void docThongKe(TuDien& td, const string& tenFile) {
     ifstream f(tenFile);
-    if (!f.is_open()) return; // Khong co file thi bo qua, khong throw
+    if (!f.is_open()) return; // Không có file thì bỏ qua, không throw
 
     string line;
     getline(f, line);
     td.soLichSu = stoi(line);
 
     getline(f, line);
-    // Tach cac tu lich su theo '|'
+    // Tách các từ lịch sử theo '|'
     int idx = 0;
     size_t pos;
     while ((pos = line.find('|')) != string::npos && idx < 10) {
