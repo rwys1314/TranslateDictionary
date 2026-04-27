@@ -27,7 +27,7 @@ struct TuDien {
 };
 
 // ============================================================
-//  KHOI TAO & GIAI PHONG (1)
+//  KHOI TAO & GIAI PHONG (2)
 // ============================================================
 void khoiTao   (TuDien& td, int dungLuongBanDau = 10);
 void giaiPhong (TuDien& td);
