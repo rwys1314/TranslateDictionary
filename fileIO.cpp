@@ -10,7 +10,7 @@ using namespace std;
 // ============================================================
 void ghiFile(const TuDien& td, const string& tenFile) {
     try {
-        ofstream f(tenFile + ".txt");
+        ofstream f(tenFile);
 
         if (!f.is_open()) {
             cout << "Khong mo duoc file de ghi!";
