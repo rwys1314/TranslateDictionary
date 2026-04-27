@@ -24,6 +24,14 @@ struct TuDien {
     TuVung* data;
     int soLuong;
     int dungLuong;
+
+    // Recent search
+    string lichSu[10];
+    int soLichSu;
+
+    // Thống kê quiz
+    int tongSoCauQuiz;
+    int tongSoCauDung;
 };
 
 // ============================================================
