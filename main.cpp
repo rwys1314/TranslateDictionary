@@ -47,7 +47,7 @@ void xuLyThem(TuDien& td) {
 void xuLySua(TuDien& td) {
     veKhung("SUA THONG TIN TU");
     hienThiTatCa(td);
-    int index = nhapSoNguyen("Nhap STT tu muon sua (bat dau tu 0): ");
+    int index = nhapSoHopLe("Nhap STT tu muon sua (bat dau tu 0): ");
     if (index < 0 || index >= td.soLuong) {
         cout << "✗ Chi so khong hop le!\n";
         return;
@@ -58,7 +58,7 @@ void xuLySua(TuDien& td) {
 void xuLyXoa(TuDien& td) {
     veKhung("XOA TU");
     hienThiTatCa(td);
-    int index = nhapSoNguyen("Nhap STT tu muon xoa (bat dau tu 0): ");
+    int index = nhapSoHopLe("Nhap STT tu muon xoa (bat dau tu 0): ");
     if (index < 0 || index >= td.soLuong) {
         cout << "✗ Chi so khong hop le!\n";
         return;
@@ -75,7 +75,7 @@ void xuLyXoa(TuDien& td) {
 void xuLyYeuThich(TuDien& td) {
     veKhung("DANH DAU YEU THICH");
     hienThiTatCa(td);
-    int index = nhapSoNguyen("Nhap STT tu muon danh dau (bat dau tu 0): ");
+    int index = nhapSoHopLe("Nhap STT tu muon danh dau (bat dau tu 0): ");
     if (index < 0 || index >= td.soLuong) {
         cout << "✗ Chi so khong hop le!\n";
         return;
