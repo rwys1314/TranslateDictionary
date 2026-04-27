@@ -4,8 +4,7 @@ Từ điển Anh - Việt
 Cấu trúc:
 - main.cpp     <- Leader viết
 - tuvung.h     <- Leader viết
-- tuvung.cpp   <- Cả 3 viết
-- crud.cpp     <- Developer viết
+- tuvung.cpp   <- Developer viết
 - fileIO.cpp   <- Tester & Documenter viết
 - tudien.txt   <- Có sẵn
 
