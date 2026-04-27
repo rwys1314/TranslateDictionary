@@ -98,7 +98,7 @@ void docFile(TuDien& td, const string& tenFile) {
 // ============================================================
 void xuatYeuThich(const TuDien& td, const string& tenFile) {
     try {
-        ofstream f(tenFile ".txt");
+        ofstream f(tenFile + ".txt");
 
         if (!f.is_open()) {
             cout << "Khong mo duoc file de ghi!";
