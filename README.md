@@ -1,4 +1,4 @@
-# 252FIT1202.10_Nhom6
+# TranslateDictionary
 Từ điển Anh - Việt 
 
 
