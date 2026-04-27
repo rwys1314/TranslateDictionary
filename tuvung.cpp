@@ -8,9 +8,12 @@
 // ============================================================
 
 void khoiTao(TuDien& td, int dungLuongBanDau) {
-    td.dungLuong = dungLuongBanDau;
-    td.soLuong   = 0;
-    td.data      = new TuVung[td.dungLuong];
+    td.dungLuong     = dungLuongBanDau;
+    td.soLuong       = 0;
+    td.data          = new TuVung[td.dungLuong];
+    td.soLichSu      = 0;
+    td.tongSoCauQuiz = 0;
+    td.tongSoCauDung = 0;
 }
 
 void giaiPhong(TuDien& td) {
@@ -155,6 +158,34 @@ void timKiem(const TuDien& td, const string& keyword) {
 }
 
 // ============================================================
+//  LỊCH SỬ TRA CỨU
+// ============================================================
+
+void themLichSu(TuDien& td, const string& word) {
+    // Tránh trùng lặp
+    for (int i = 0; i < td.soLichSu; i++)
+        if (td.lichSu[i] == word) return;
+
+    // Dịch mảng lên nếu đầy
+    if (td.soLichSu == 10) {
+        for (int i = 0; i < 9; i++)
+            td.lichSu[i] = td.lichSu[i + 1];
+        td.soLichSu = 9;
+    }
+    td.lichSu[td.soLichSu++] = word;
+}
+
+void hienThiLichSu(const TuDien& td) {
+    if (td.soLichSu == 0) {
+        cout << "  (Chua co lich su tra cuu)\n";
+        return;
+    }
+    cout << "  10 tu tra gan day (moi nhat o cuoi):\n";
+    for (int i = 0; i < td.soLichSu; i++)
+        cout << "  " << (i + 1) << ". " << td.lichSu[i] << "\n";
+}
+
+// ============================================================
 //  YÊU THÍCH
 // ============================================================
 
@@ -187,7 +218,7 @@ void hienThiYeuThich(const TuDien& td) {
 //  QUIZ NGẪU NHIÊN
 // ============================================================
 
-void quizNgauNhien(const TuDien& td) {
+void quizNgauNhien(TuDien& td) {
     if (td.soLuong == 0) {
         cout << "  Tu dien rong, khong the quiz!\n";
         return;
@@ -224,12 +255,16 @@ void quizNgauNhien(const TuDien& td) {
         }
     }
 
-    delete[] indices;
-
     cout << "  ===========================\n";
     cout << "  Ket qua: " << diem << "/" << soCau << " cau dung\n";
     cout << "  Ti le  : " << (diem * 100 / soCau) << "%\n";
     cout << "  ===========================\n";
+
+    // Lưu lại vào struct
+    td.tongSoCauQuiz += soCau;
+    td.tongSoCauDung += diem;
+
+    delete[] indices;
 }
 
 // ============================================================
@@ -257,6 +292,13 @@ void hienThiThongKe(const TuDien& td) {
     cout << "  Trang tu (adv)  : " << soAdv        << "\n";
     cout << "  Loai khac       : " << soKhac        << "\n";
     cout << "  Dung luong mang : " << td.dungLuong  << "\n";
+
+    cout << "  Tong cau quiz da lam : " << td.tongSoCauQuiz << "\n";
+    if (td.tongSoCauQuiz > 0)
+    cout << "  Do chinh xac tich luy: "
+         << (td.tongSoCauDung * 100 / td.tongSoCauQuiz) << "%\n";
+    else
+    cout << "  Do chinh xac tich luy: Chua co du lieu\n";
 }
 
 // ============================================================
