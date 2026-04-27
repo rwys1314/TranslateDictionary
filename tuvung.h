@@ -12,12 +12,12 @@ using namespace std;
 //  STRUCT CHÍNH (1)
 // ============================================================
 struct TuVung {
-    string word;           // Tu tieng Anh
-    string pronunciation;  // Phien am IPA
+    string word;           // Từ tiếng Anh
+    string pronunciation;  // Phiên âm IPA
     string type;           // n / v / adj / adv
-    string meaning;        // Nghia tieng Viet
-    string example;        // Cau vi du
-    bool   favorite;       // true = danh dau yeu thich
+    string meaning;        // Nghĩa tiếng Việt
+    string example;        // Câu ví dụ
+    bool   favorite;       // true = đánh dấu yêu thích
 };
 
 struct TuDien {
@@ -31,7 +31,7 @@ struct TuDien {
 // ============================================================
 void khoiTao   (TuDien& td, int dungLuongBanDau = 10);
 void giaiPhong (TuDien& td);
-void moRong    (TuDien& td);   // Goi khi mang day
+void moRong    (TuDien& td);   // Gọi khi mảng đầy
 
 // ============================================================
 //  CRUD (2)
