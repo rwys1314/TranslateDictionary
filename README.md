@@ -1,7 +1,8 @@
 # TranslateDictionary
 Từ điển Anh - Việt 
 
-## CẤU TRÚC
+### CẤU TRÚC
+
 | File          | Người viết                          | Nội dung chính                                      |
 |---------------|-------------------------------------|-----------------------------------------------------|
 | tuvung.h      | Leader                              | Toàn bộ struct TuVung, TuDien + prototype           |
@@ -13,10 +14,10 @@ Từ điển Anh - Việt
 | thongke.txt   | Tự động tạo                         | Lịch sử tra cứu, thống kê quiz                      |
 
 
-## PHÂN CÔNG CỤ THỂ
+### PHÂN CÔNG CỤ THỂ
 
 
-### Leader
+**Leader**
 
 | Nhiệm vụ                                  | File        | Trạng thái |
 |-------------------------------------------|-------------|------------|
@@ -31,7 +32,7 @@ Từ điển Anh - Việt
 | Viết báo cáo                              | -           | [ ]        |
 
 
-### Developer
+**Developer**
 
 | Nhiệm vụ                                               | File        | Trạng thái |
 |--------------------------------------------------------|-------------|------------|
@@ -42,7 +43,7 @@ Từ điển Anh - Việt
 | hienThiThongKe() -- độ chính xác quiz tích lũy         | tuvung.cpp  | [x]        |
 
 
-### Tester & Documenter
+**Tester & Documenter**
 
 | Nhiệm vụ                                               | File        | Trạng thái |
 |--------------------------------------------------------|-------------|------------|
@@ -54,7 +55,7 @@ Từ điển Anh - Việt
 
 ---
 
-## Tính năng
+### Tính năng
 
 | Tính năng                               | Trạng thái |
 |-----------------------------------------|------------|
@@ -69,14 +70,14 @@ Từ điển Anh - Việt
 
 ---
 
-## Build
+### Build
 
 ```
 g++ -std=c++17 -o tudien main.cpp tuvung.cpp fileIO.cpp ui.cpp
 ./tudien
 ```
 
-# Định dạng file
+## Định dạng file
 
 **tudien.txt**
 ```
