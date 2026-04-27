@@ -67,9 +67,10 @@ void xuatYeuThich(const TuDien& td, const string& tenFile);
 // ============================================================
 //  VALIDATION & UI  (Tester & Documenter)
 // ============================================================
-int    nhapSoHopLe(const string& thongBao, int min, int max);
-string nhapChuoiHopLe(const string& thongBao);
-void   veKhung(int rong = 50);
+int    nhapSoNguyen(const string& thongBao, int min, int max);
+string nhapChuoi(const string& thongBao);
+void   veKhung(const string& tieu_de);
+void   pause();
 void   hienThiMenu();
 
 #endif
