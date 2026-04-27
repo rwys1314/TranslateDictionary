@@ -62,7 +62,7 @@ void timKiem            (const TuDien& td, const string& keyword);
 // ============================================================
 void danhDauYeuThich (TuDien& td, int viTri);
 void hienThiYeuThich (const TuDien& td);
-void quizNgauNhien   (const TuDien& td);
+void quizNgauNhien   (TuDien& td);
 void hienThiThongKe  (const TuDien& td);
 
 // ============================================================
