@@ -139,22 +139,23 @@ void timKiem(const TuDien& td, const string& keyword) {
     cout << "  " << string(60, '-') << "\n";
 
     for (int i = 0; i < td.soLuong; i++) {
-        // Tìm trong word hoặc meaning (không phân biệt hoa thường)
-        string w = td.data[i].word, k = keyword;
-        string m = td.data[i].meaning; 
-        // Chuyển về thường để so sánh
-        for (char& c : w) c = tolower(c);
-        for (char& c : k) c = tolower(c);
-        for (char& c : m) c = tolower(c);
+    string w = td.data[i].word;
+    string k = keyword;
+    string m = td.data[i].meaning;
 
-        if (w.find(k) != string::npos ||
-             m.find(k) != string::npos) {
-            cout << "  ";
-            hienThiChiTiet(td.data[i]);
-            cout << "  " << string(60, '-') << "\n";
-            found = true;
-        }
+    // Chuyển về thường để so sánh
+    for (int j = 0; j < w.length(); j++) w[j] = tolower(w[j]);
+    for (int j = 0; j < k.length(); j++) k[j] = tolower(k[j]);
+    for (int j = 0; j < m.length(); j++) m[j] = tolower(m[j]);
+
+    if (w.find(k) != string::npos ||
+        m.find(k) != string::npos) {
+        cout << "  ";
+        hienThiChiTiet(td.data[i]);
+        cout << "\n";
+        found = true;
     }
+}
 
     if (!found) cout << "  Khong tim thay ket qua nao.\n";
 }
