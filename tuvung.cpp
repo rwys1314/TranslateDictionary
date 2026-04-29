@@ -141,12 +141,14 @@ void timKiem(const TuDien& td, const string& keyword) {
     for (int i = 0; i < td.soLuong; i++) {
         // Tìm trong word hoặc meaning (không phân biệt hoa thường)
         string w = td.data[i].word, k = keyword;
+        string m = td.data[i].meaning; 
         // Chuyển về thường để so sánh
         for (char& c : w) c = tolower(c);
         for (char& c : k) c = tolower(c);
+        for (char& c : m) c = tolower(c);
 
         if (w.find(k) != string::npos ||
-            td.data[i].meaning.find(keyword) != string::npos) {
+             m.find(k) != string::npos) {
             cout << "  ";
             hienThiChiTiet(td.data[i]);
             cout << "  " << string(60, '-') << "\n";
