@@ -1,7 +1,5 @@
 #include "tuvung.h"
-#include <algorithm>
 #include <cstdlib>
-#include <ctime>
 
 // ============================================================
 //  KHỞI TẠO & GIẢI PHÓNG
