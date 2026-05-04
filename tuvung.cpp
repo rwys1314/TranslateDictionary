@@ -149,7 +149,7 @@ void timKiem(TuDien& td, string keyword) {
         return;
     }
 
-    // Bước 1: Thử tìm chính xác bằng Binary Search trước
+    // Bước 1: Tìm bằng Binary Search trước
     int viTri = BinarySearch(td, keyword);
     if (viTri != -1) {
         cout << "\n[!] Tim thay chinh xac:\n";
@@ -158,7 +158,7 @@ void timKiem(TuDien& td, string keyword) {
         return;
     }
 
-    // Bước 2: Nếu không thấy chính xác, mới đi tìm chuỗi con (fallback)
+    // Bước 2: Nếu không thấy chính xác, đi tìm chuỗi con (fallback)
     cout << "\n--- Khong co tu chinh xac, tim cac tu lien quan... ---\n";
     bool timThay = false;
     string keyLower = toLower(keyword);
