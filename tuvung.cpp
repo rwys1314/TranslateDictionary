@@ -127,7 +127,7 @@ void sapXepTheoAlphabet(TuDien& td) {
 }
 
 // Binary Search
-int BinarySearch(const TuDien& td, string word) {
+int BinarySearch(const TuDien& td, const string& word) {
     int left = 0, right = td.soLuong - 1;
     string target = toLower(word); // Đổi từ cần tìm sang chữ thường
 
