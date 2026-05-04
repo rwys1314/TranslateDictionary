@@ -1,8 +1,8 @@
 #include "tuvung.h"
-#include <cstdlib>
-#include <cctype> 
-#include <ctime>
-#include <algorithm> // Thư viện để dùng các hàm có sẵn như swap, find, sort
+#include <cstdlib> // Dùng cho rand
+#include <cctype> // Dùng cho tolower
+#include <ctime>  // Dùng cho time
+#include <algorithm> // Dùng cho swap
 
 // ============================================================
 //  KHỞI TẠO & GIẢI PHÓNG
@@ -250,7 +250,7 @@ void quizNgauNhien(TuDien& td) {
     }
     int diem  = 0;
     
-    cin.ignore();
+    cin.ignore(1000, '\n');
     cout << "  Quiz " << soCau << " cau ngau nhien. Nhap nghia tieng Viet:\n\n";
 
     // Tạo mảng ngẫu nhiên không trùng lặp
