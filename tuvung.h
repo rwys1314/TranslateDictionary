@@ -55,7 +55,7 @@ bool xoaTuVung      (TuDien& td, int viTri);
 // ============================================================
 void sapXepTheoAlphabet (TuDien& td);
 int  BinarySearch       (const TuDien& td, const string& word);
-void timKiem            (const TuDien& td, const string& keyword);
+void timKiem            (TuDien& td, const string& keyword);
 
 // ============================================================
 // LỊCH SỬ (2)
