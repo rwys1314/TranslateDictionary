@@ -12,7 +12,6 @@ Từ điển Anh - Việt
 | fileIO.cpp    | Tester & Documenter                 | Đọc/ghi file + thống kê, xuất yêu thích             |
 | ui.cpp        | Tester & Documenter                 | Vẽ khung, hiển thị menu, nhập số nguyên + chuỗi     |
 | tudien.txt    | Có sẵn                              | Dữ liệu từ vựng                                     |
-| thongke.txt   | Tự động tạo                         | Lịch sử tra cứu, thống kê quiz                      |
 
 
 
