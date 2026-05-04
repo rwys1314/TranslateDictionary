@@ -1,5 +1,8 @@
 #include "tuvung.h"
 #include <cstdlib>
+#include <cctype> 
+#include <ctime>
+#include <algorithm> // Thư viện để dùng các hàm có sẵn như swap, find, sort
 
 // ============================================================
 //  KHỞI TẠO & GIẢI PHÓNG
@@ -101,63 +104,77 @@ bool xoaTuVung(TuDien& td, int viTri) {
 }
 
 // ============================================================
-//  TÌM KIẾM & SẮP XẾP
+//  SẮP XẾP & TÌM KIẾM
 // ============================================================
 
+string toLower(string s) {
+    for (int i = 0; i < s.length(); i++) {
+        s[i] = tolower(s[i]);
+    }
+    return s;
+}
+
+//Sắp xếp: So sánh chữ thường để không bị lỗi thứ tự ASCII
 void sapXepTheoAlphabet(TuDien& td) {
     for (int i = 0; i < td.soLuong - 1; i++) {
         for (int j = 0; j < td.soLuong - i - 1; j++) {
-            if (td.data[j].word > td.data[j + 1].word) {
+            // Đổi cả 2 về chữ thường rồi mới so sánh để sắp xếp từ A-Z
+            if (toLower(td.data[j].word) > toLower(td.data[j + 1].word)) {
                 swap(td.data[j], td.data[j + 1]);
             }
         }
     }
 }
 
-// Binary Search chính xác (yêu cầu đã sắp xếp trước)
-int BinarySearch(const TuDien& td, const string& word) {
+// Binary Search
+int BinarySearch(const TuDien& td, string word) {
     int left = 0, right = td.soLuong - 1;
+    string target = toLower(word); // Đổi từ cần tìm sang chữ thường
+
     while (left <= right) {
         int mid = (left + right) / 2;
-        if (td.data[mid].word == word) return mid;
-        if (td.data[mid].word < word)  left  = mid + 1;
-        else                           right = mid - 1;
+        string currentWord = toLower(td.data[mid].word);
+
+        if (currentWord == target) return mid;
+        if (currentWord < target)  left = mid + 1;
+        else                       right = mid - 1;
     }
     return -1;
 }
 
-// Tìm Kiếm: Binary Search + fallback chuỗi con
-void timKiem(const TuDien& td, const string& keyword) {
-    // Phải sắp xếp trước khi gọi Binary Search
-    // Nhưng timKiem là const nên xử lý: tìm chuỗi con trước
-    // rồi trả kết quả chính xác nếu có
-    bool found = false;
+// Tìm kiếm tổng hợp: Kết hợp cả 2
+void timKiem(TuDien& td, string keyword) {
+    if (keyword == "") {
+        cout << "Ban chua nhap tu khoa!\n";
+        return;
+    }
 
-    cout << "\n  Ket qua tim kiem cho '" << keyword << "':\n";
-    cout << "  " << string(60, '-') << "\n";
+    // Bước 1: Thử tìm chính xác bằng Binary Search trước
+    int viTri = BinarySearch(td, keyword);
+    if (viTri != -1) {
+        cout << "\n[!] Tim thay chinh xac:\n";
+        hienThiChiTiet(td.data[viTri]);
+        themLichSu(td, td.data[viTri].word);
+        return;
+    }
+
+    // Bước 2: Nếu không thấy chính xác, mới đi tìm chuỗi con (fallback)
+    cout << "\n--- Khong co tu chinh xac, tim cac tu lien quan... ---\n";
+    bool timThay = false;
+    string keyLower = toLower(keyword);
 
     for (int i = 0; i < td.soLuong; i++) {
-    string w = td.data[i].word;
-    string k = keyword;
-    string m = td.data[i].meaning;
-
-    // Chuyển về thường để so sánh
-    for (int j = 0; j < w.length(); j++) w[j] = tolower(w[j]);
-    for (int j = 0; j < k.length(); j++) k[j] = tolower(k[j]);
-    for (int j = 0; j < m.length(); j++) m[j] = tolower(m[j]);
-
-    if (w.find(k) != string::npos ||
-        m.find(k) != string::npos) {
-        cout << "  ";
-        hienThiChiTiet(td.data[i]);
-        cout << "\n";
-        found = true;
+        if (toLower(td.data[i].word).find(keyLower) != string::npos || 
+            toLower(td.data[i].meaning).find(keyLower) != string::npos) {
+            
+            hienThiChiTiet(td.data[i]);
+            cout << "------------------------------------\n";
+            timThay = true;
+        }
     }
-}
 
-    if (!found) cout << "  Khong tim thay ket qua nao.\n";
+    if (!timThay) cout << "Khong tim thay tu nao lien quan den '" << keyword << "'\n";
 }
-
 // ============================================================
 //  LỊCH SỬ TRA CỨU
 // ============================================================
@@ -225,12 +242,18 @@ void quizNgauNhien(TuDien& td) {
         return;
     }
 
-    int soCau = (td.soLuong < 5) ? td.soLuong : 5;
+    int soCau;
+    if (td.soLuong < 5) {
+        soCau = td.soLuong;
+    } else {
+        soCau = 5;
+    }
     int diem  = 0;
-
+    
+    cin.ignore();
     cout << "  Quiz " << soCau << " cau ngau nhien. Nhap nghia tieng Viet:\n\n";
 
-    // Tạo mảng index ngẫu nhiên không trùng lặp
+    // Tạo mảng ngẫu nhiên không trùng lặp
     int* indices = new int[td.soLuong];
     for (int i = 0; i < td.soLuong; i++) indices[i] = i;
     // Shuffle (Fisher-Yates)
@@ -248,7 +271,7 @@ void quizNgauNhien(TuDien& td) {
         string answer;
         getline(cin, answer);
 
-        if (answer == tv.meaning) {
+       if (toLower(answer) == toLower(tv.meaning)) {
             cout << "  Dung!\n\n";
             diem++;
         } else {
