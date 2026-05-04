@@ -1,16 +1,12 @@
 #include "tuvung.h"
-#include <limits>
 
 // ============================================================
 //  VẼ KHUNG
 // ============================================================
 void veKhung(const string& tieuDe) {
-    int rong = 44;
-    cout << "\n  " << string(rong, '=') << "\n";
-    int pad = (rong - (int)tieuDe.size()) / 2;
-    if (pad < 0) pad = 0;
-    cout << "  " << string(pad, ' ') << tieuDe << "\n";
-    cout << "  " << string(rong, '=') << "\n\n";
+    cout << "\n  ============================================\n";
+    cout << "  " << tieuDe << "\n";
+    cout << "  ============================================\n\n";
 }
 
 // ============================================================
@@ -21,15 +17,13 @@ int nhapSoNguyen(const string& thongBao, int min, int max) {
     while (true) {
         if (!thongBao.empty()) cout << thongBao;
         cin >> x;
-
         if (cin.fail()) {
             cin.clear();
-            cin.ignore(numeric_limits<streamsize>::max(), '\n');
+            cin.ignore(1000, '\n');
             cout << "  Vui long nhap so nguyen!\n";
             continue;
         }
-        cin.ignore(numeric_limits<streamsize>::max(), '\n');
-
+        cin.ignore(1000, '\n');
         if (x < min || x > max) {
             cout << "  Nhap tu " << min << " den " << max << "!\n";
             continue;
@@ -56,7 +50,7 @@ string nhapChuoi(const string& thongBao) {
 // ============================================================
 void pauseScreen() {
     cout << "\n  [Nhan Enter de tiep tuc...]";
-    cin.ignore(numeric_limits<streamsize>::max(), '\n');
+    cin.get();
 }
 
 // ============================================================
