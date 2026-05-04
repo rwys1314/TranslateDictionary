@@ -1,7 +1,6 @@
 #include "tuvung.h"
 #include <cstdlib>
 #include <ctime>
-#include <limits>
 
 // ============================================================
 //  XỬ LÝ TÌM KIẾM
@@ -107,8 +106,7 @@ void xuLyXoa(TuDien& td) {
     cout << "  Ban co chac muon xoa '" << td.data[index].word << "'? (y/n): ";
     char confirm;
     cin >> confirm;
-    cin.ignore(numeric_limits<streamsize>::max(), '\n');
-
+    cin.ignore(1000, '\n');
     if (confirm == 'y' || confirm == 'Y') {
         string ten = td.data[index].word;
         if (xoaTuVung(td, index))
@@ -142,7 +140,7 @@ void xuLyYeuThich(TuDien& td) {
 //  MAIN
 // ============================================================
 int main() {
-    srand(static_cast<unsigned int>(time(nullptr))); // Khởi tạo 1 lần
+    srand(time(0));
 
     const string TEN_FILE = "tudien.txt";
     TuDien td;
@@ -185,7 +183,7 @@ int main() {
                 break;
             case 7:
                 veKhung("QUIZ ON TAP");
-                cin.ignore(numeric_limits<streamsize>::max(), '\n');
+                cin.ignore();
                 quizNgauNhien(td);
                 break;
             case 8:
