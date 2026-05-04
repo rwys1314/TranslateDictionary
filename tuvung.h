@@ -2,10 +2,10 @@
 #define TUVUNG_H
 
 #include <iostream>
-#include <fstream>
-#include <iomanip>
+#include <fstream> // Dùng cho file
+#include <iomanip> // Dùng cho setw và left
 #include <string>
-#include <stdexcept>
+#include <stdexcept>  // Dùng cho try-catch
 using namespace std;
 
 // ============================================================
