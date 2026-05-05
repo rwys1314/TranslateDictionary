@@ -255,7 +255,6 @@ void quizNgauNhien(TuDien& td) {
     }
     int diem  = 0;
     
-    
     cout << "  Quiz " << soCau << " cau ngau nhien. Nhap nghia tieng Viet:\n\n";
 
     // Tạo mảng ngẫu nhiên không trùng lặp
