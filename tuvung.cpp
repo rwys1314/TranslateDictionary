@@ -176,7 +176,7 @@ void timKiem (TuDien& td, const string& keyword) {
     if (!timThay) {
    cout << "Khong tim thay tu nao lien quan...\n";
     } else {
-    themLichSu(td, td.data[i].word);
+    themLichSu(td, keyword);
 }
 }
 
