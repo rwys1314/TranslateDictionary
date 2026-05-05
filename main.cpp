@@ -9,9 +9,6 @@ void xuLyTimKiem(TuDien& td) {
     veKhung("TIM KIEM TU");
     string keyword = nhapChuoi("Nhap tu can tim: ");
 
-    // Lưu vào lịch sử trước khi tìm
-    themLichSu(td, keyword);
-
     // Sắp xếp để Binary Search hoạt động đúng
     sapXepTheoAlphabet(td);
     int idx = BinarySearch(td, keyword);
