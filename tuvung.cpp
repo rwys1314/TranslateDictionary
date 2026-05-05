@@ -143,7 +143,7 @@ int BinarySearch(const TuDien& td, const string& word) {
 }
 
 // Tìm kiếm tổng hợp: Kết hợp cả 2
-void timKiem(TuDien& td, string keyword) {
+void timKiem (TuDien& td, const string& keyword) {
     if (keyword == "") {
         cout << "Ban chua nhap tu khoa!\n";
         return;
@@ -176,7 +176,7 @@ void timKiem(TuDien& td, string keyword) {
     if (!timThay) {
    cout << "Khong tim thay tu nao lien quan...\n";
     } else {
-    themLichSu(td, keyword);
+    themLichSu(td, td.data[i].word);
 }
 }
 
