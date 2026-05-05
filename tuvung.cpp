@@ -182,7 +182,7 @@ void timKiem(TuDien& td, string keyword) {
 void themLichSu(TuDien& td, const string& word) {
     // Tránh trùng lặp
     for (int i = 0; i < td.soLichSu; i++)
-        if (td.lichSu[i] == word) return;
+        if (toLower(td.lichSu[i]) == toLower(word)) return;
 
     // Dịch mảng lên nếu đầy
     if (td.soLichSu == 10) {
@@ -250,7 +250,7 @@ void quizNgauNhien(TuDien& td) {
     }
     int diem  = 0;
     
-    cin.ignore(1000, '\n');
+    
     cout << "  Quiz " << soCau << " cau ngau nhien. Nhap nghia tieng Viet:\n\n";
 
     // Tạo mảng ngẫu nhiên không trùng lặp
