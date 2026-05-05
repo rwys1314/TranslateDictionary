@@ -7,7 +7,7 @@ Từ điển Anh - Việt
 | File          | Người viết                          | Nội dung chính                                      |
 |---------------|-------------------------------------|-----------------------------------------------------|
 | tuvung.h      | Leader                              | Toàn bộ struct TuVung, TuDien + prototype           |
-| tuvung.cpp    | Leader + Developer                  | Khởi tạo, CRUD, tìm kiếm, quiz, thống kê            |
+| tuvung.cpp    | Developer                           | Khởi tạo, CRUD, tìm kiếm, quiz, thống kê            |
 | main.cpp      | Leader                              | Menu, switch-case, khung chương trình               |
 | fileIO.cpp    | Tester & Documenter                 | Đọc/ghi file + thống kê, xuất yêu thích             |
 | ui.cpp        | Tester & Documenter                 | Vẽ khung, hiển thị menu, nhập số nguyên + chuỗi     |
@@ -26,9 +26,6 @@ Từ điển Anh - Việt
 |-------------------------------------------|-------------|------------|
 | Định nghĩa struct TuVung, TuDien          | tuvung.h    | [x]        |
 | Khai báo toàn bộ prototype                | tuvung.h    | [x]        |
-| khoiTao(), giaiPhong(), moRong()          | tuvung.cpp  | [x]        |
-| sapXepTheoAlphabet(), BinarySearch()      | tuvung.cpp  | [x]        |
-| timKiem(), themLichSu(), hienThiLichSu()  | tuvung.cpp  | [x]        |
 | Menu chính, switch-case                   | main.cpp    | [x]        |
 | Xử lý từng chức năng (xuLyXxx)            | main.cpp    | [x]        |
 | Ghép toàn bộ code + test tích hợp         | tất cả      | [x]        |
@@ -38,6 +35,9 @@ Từ điển Anh - Việt
 
 | Nhiệm vụ                                               | File        | Trạng thái |
 |--------------------------------------------------------|-------------|------------|
+| khoiTao(), giaiPhong(), moRong()                       | tuvung.cpp  | [x]        |
+| sapXepTheoAlphabet(), BinarySearch()                   | tuvung.cpp  | [x]        |
+| timKiem(), themLichSu(), hienThiLichSu()               | tuvung.cpp  | [x]        |
 | themTuVung(), hienThiTatCa(), hienThiChiTiet()         | tuvung.cpp  | [x]        |
 | suaTuVung(), xoaTuVung()                               | tuvung.cpp  | [x]        |
 | danhDauYeuThich(), hienThiYeuThich()                   | tuvung.cpp  | [x]        |
