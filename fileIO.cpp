@@ -29,7 +29,7 @@ void ghiFile(const TuDien& td, const string& tenFile) {
         }
 
         f.close();
-        cout << "  ✓ Da luu file thanh cong!" << endl;
+        cout << " Da luu file thanh cong!" << endl;
     }
     catch (const exception& e) {
         cout << " Loi ghi file: " << e.what() << endl;
@@ -65,7 +65,7 @@ void docFile(TuDien& td, const string& tenFile) {
             themTuVung(td, tv); // Hàm này sẽ tự lo việc moRong() mảng[cite: 5]
         }
         f.close();
-        cout << " ✓ Da tai " << td.soLuong << " tu tu file!" << endl;
+        cout << " Da tai " << td.soLuong << " tu tu file!" << endl;
     }
     catch (const exception& e) {
         cout << " Loi doc file: " << e.what() << endl;
@@ -95,7 +95,7 @@ void xuatYeuThich(const TuDien& td, const string& tenFile) {
                   << tv.meaning << "|"
                   << tv.example << "|"
                   << tv.favorite << endl;
-
+                
                 dem++;
             }
         }
@@ -105,7 +105,7 @@ void xuatYeuThich(const TuDien& td, const string& tenFile) {
         if (dem == 0) {
             cout << " Khong co tu yeu thich de xuat\n";
         } else {
-            cout << " ✓ Da xuat " << dem << " tu yeu thich ra file!\n";
+            cout << " Da xuat " << dem << " tu yeu thich ra file!\n";
         }
     }
     catch (const exception& e) {
