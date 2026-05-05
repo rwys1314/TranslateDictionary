@@ -173,8 +173,13 @@ void timKiem(TuDien& td, string keyword) {
         }
     }
 
-    if (!timThay) cout << "Khong tim thay tu nao lien quan den '" << keyword << "'\n";
+    if (!timThay) {
+   cout << "Khong tim thay tu nao lien quan...\n";
+    } else {
+    themLichSu(td, keyword);
 }
+}
+
 // ============================================================
 //  LỊCH SỬ TRA CỨU
 // ============================================================
