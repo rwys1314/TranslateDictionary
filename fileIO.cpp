@@ -17,8 +17,6 @@ void ghiFile(const TuDien& td, const string& tenFile) {
             return;
         }
 
-        f << td.soLuong << "\n";
-
         for (int i = 0; i < td.soLuong; i++) {
             const TuVung& tv = td.data[i];
 
@@ -44,33 +42,16 @@ void ghiFile(const TuDien& td, const string& tenFile) {
 void docFile(TuDien& td, const string& tenFile) {
     try {
         ifstream f(tenFile);
+        if (!f.is_open()) return;
 
-        if (!f.is_open()) {
-            cout << "Khong mo duoc file de doc!";
-            return;
-        }
+        string line;
+        td.soLuong = 0; // Reset số lượng trước khi đọc
 
-        int n;
-        f >> n;
-
-        if (f.fail()) {
-            cout << "File bi sai dinh dang!";
-            return;
-        }
-
-        f.ignore(); // bỏ ký tự xuống dòng
-
-        td.soLuong = 0;
-
-        for (int i = 0; i < n; i++) {
-            TuVung tv;
-            string line;
-
-            getline(f, line);
-
+        while (getline(f, line)) { // Đọc từng dòng cho đến hết file
             if (line.empty()) continue;
 
             stringstream ss(line);
+            TuVung tv;
             string fav;
 
             getline(ss, tv.word, '|');
@@ -81,12 +62,10 @@ void docFile(TuDien& td, const string& tenFile) {
             getline(ss, fav, '|');
 
             tv.favorite = (fav == "1");
-
-            themTuVung(td, tv);
+            themTuVung(td, tv); // Hàm này sẽ tự lo việc moRong() mảng[cite: 5]
         }
-
         f.close();
-        cout << " ✓ Da doc file thanh cong!" << endl;
+        cout << " ✓ Da tai " << td.soLuong << " tu tu file!" << endl;
     }
     catch (const exception& e) {
         cout << " Loi doc file: " << e.what() << endl;
