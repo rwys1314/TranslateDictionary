@@ -18,6 +18,7 @@ void xuLyTimKiem(TuDien& td) {
         cout << "\n  Tim thay chinh xac:\n";
         cout << "  " << string(60, '-') << "\n";
         hienThiChiTiet(td.data[idx]);
+        themLichSu(td, td.data[idx].word);
         cout << "  " << string(60, '-') << "\n";
     } else {
         // Không tìm thấy chính xác => fallback chuỗi con
@@ -180,7 +181,7 @@ int main() {
                 break;
             case 7:
                 veKhung("QUIZ ON TAP");
-                cin.ignore();
+                cin.ignore(1000, '\n');
                 quizNgauNhien(td);
                 break;
             case 8:
