@@ -181,7 +181,6 @@ int main() {
                 break;
             case 7:
                 veKhung("QUIZ ON TAP");
-                cin.ignore();
                 quizNgauNhien(td);
                 break;
             case 8:
